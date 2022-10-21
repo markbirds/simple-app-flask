@@ -1,13 +1,8 @@
 ## Simple App - Flask
 
-<br>
-
 ### Requirements
 
-1. Python installed (latest=3.10.7). Get python [here](https://www.python.org/downloads/).
-2. Virtual Environment
-
-<br>
+Python installed (latest=3.10.7). Get python [here](https://www.python.org/downloads/).
 
 ### Create virtual environment
 
@@ -38,13 +33,9 @@ How to use pyenv?
 https://github.com/pyenv/pyenv
 ```
 
-<br>
+#### Why do we use virtual environment in Python?
 
-Why do we use virtual environment in Python?
-
-Using virtualenv allows you to avoid installing Python packages globally which could break system tools or other projects.
-
-<br>
+Using virtual environment allows you to avoid installing Python packages globally which could break system tools or other projects.
 
 ### Install libraries
 
@@ -54,8 +45,6 @@ Make sure you activated your virtual environment.
 Command:
 pip install -r requirements.txt
 ```
-
-<br>
 
 ### Set up database
 
@@ -67,8 +56,6 @@ Command:
 flask create_tables
 ```
 
-<br>
-
 ### Running the app
 
 ```
@@ -77,8 +64,6 @@ Note: Make sure to activate virtual environment first.
 Command:
 python run.py
 ```
-
-<br>
 
 ### 10 Useful Flask Plugins For Your Python Project
 
