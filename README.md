@@ -4,6 +4,11 @@
 
 Python installed (latest=3.10.7). Get python [here](https://www.python.org/downloads/).
 
+### Download source code
+```
+git clone https://github.com/markbirds/simple-app-flask.git
+```
+
 ### Create virtual environment
 
 1. Use python virtualenv library (Option 1)
