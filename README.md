@@ -4,6 +4,9 @@
 
 Python installed (latest=3.10.7). Get python [here](https://www.python.org/downloads/).
 
+### Flask Documentation
+https://flask.palletsprojects.com/en/2.2.x/
+
 ### Download source code
 ```
 git clone https://github.com/markbirds/simple-app-flask.git
