@@ -9,35 +9,69 @@
   <div class="d-flex align-items-center justify-content-between my-3 mb-4">
     <div>Profile</div>
     {% if editable %}
-      <a href="/auth/logout" class="btn btn-sm btn-danger">Logout</a>
+    <a href="/auth/logout" class="btn btn-sm btn-danger">Logout</a>
     {% else %}
-      <a href="/users" class="btn btn-sm btn-danger">Back</a>
+    <a href="/users" class="btn btn-sm btn-danger">Back</a>
     {% endif %}
   </div>
   <form>
     <div class="mb-3 mt-3">
       <label for="firstname" class="form-label">First name:</label>
-      <input type="text" class="form-control" id="firstname" placeholder="Enter your first name"
-        value="{{ user.firstname }}" name="firstname" required>
+      <input
+        type="text"
+        class="form-control"
+        id="firstname"
+        placeholder="Enter your first name"
+        value="{{ user.firstname }}"
+        name="firstname"
+        required
+      />
     </div>
     <div class="mb-3 mt-3">
       <label for="lastname" class="form-label">Last name:</label>
-      <input type="text" class="form-control" id="lastname" placeholder="Enter your last name"
-        value="{{ user.lastname }}" name="lastname" required>
+      <input
+        type="text"
+        class="form-control"
+        id="lastname"
+        placeholder="Enter your last name"
+        value="{{ user.lastname }}"
+        name="lastname"
+        required
+      />
     </div>
     <div class="mb-3 mt-3">
       <label for="age" class="form-label">Age:</label>
-      <input type="number" class="form-control" id="age" placeholder="Enter age" value="{{ user.age }}" name="age"
-        required>
+      <input
+        type="number"
+        class="form-control"
+        id="age"
+        placeholder="Enter age"
+        value="{{ user.age }}"
+        name="age"
+        required
+      />
     </div>
     <div class="mb-3 mt-3">
       <label for="email" class="form-label">Email:</label>
-      <input type="email" class="form-control" id="email" placeholder="Enter email" name="email"
-        value="{{ user.email }}" required>
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        placeholder="Enter email"
+        name="email"
+        value="{{ user.email }}"
+        required
+      />
     </div>
     <div class="mb-3 mt-3">
       <label for="date" class="form-label">Date created:</label>
-      <input type="text" class="form-control" id="date" value="{{ user.date_created }}" readonly>
+      <input
+        type="text"
+        class="form-control"
+        id="date"
+        value="{{ user.date_created }}"
+        readonly
+      />
     </div>
     {% if editable %}
     <div class="d-flex justify-content-between">
@@ -51,15 +85,16 @@
 
 {% block script %}
 <script>
+  // prettier-ignore
   let user = JSON.parse('{{ user|tojson }}');
-  let editable = '{{ editable }}';
+  let editable = "{{ editable }}";
 
-  if (editable === 'False') {
-    $('input').attr("disabled","disabled");
+  if (editable === "False") {
+    $("input").attr("disabled", "disabled");
   }
 
   $(document).ready(function () {
-    $('form').submit(function (e) {
+    $("form").submit(function (e) {
       e.preventDefault();
       const formValues = $(this).serializeArray();
       const data = {};
@@ -75,22 +110,24 @@
           url: "/update",
           method: "PATCH",
           data,
-        }).done(function (data) {
-          user = data.data;
-          alert(data.message)
-        }).fail(function (response) {
-          alert("Request failed: " + response.statusText);
-        });
+        })
+          .done(function (data) {
+            user = data.data;
+            alert(data.message);
+          })
+          .fail(function (response) {
+            alert("Request failed: " + response.statusText);
+          });
       }
     });
 
-    $('#delete').click(async function(){
+    $("#delete").click(async function () {
       await $.ajax({
-        url: `/delete/${user.id}`,
+        url: `/users/${user.id}`,
         method: "DELETE",
       });
       window.location.href = "/auth/login";
-    })
+    });
   });
 </script>
 {% endblock %}

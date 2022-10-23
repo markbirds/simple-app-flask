@@ -6,33 +6,45 @@
 
 {% block content %}
 <section>
-    <div class="d-flex justify-content-end">
-        <a href="/users" class="btn btn-sm btn-light">All users</a>
+  <div class="d-flex justify-content-end">
+    <a href="/users" class="btn btn-sm btn-light">All users</a>
+  </div>
+  <form action="/auth/login" method="POST">
+    <div class="mb-3 mt-3">
+      <label for="email" class="form-label">Email:</label>
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        placeholder="Enter email"
+        name="email"
+        required
+      />
     </div>
-    <form action="/auth/login" method="POST">
-        <div class="mb-3 mt-3">
-            <label for="email" class="form-label">Email:</label>
-            <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" required>
-        </div>
-        <div class="mb-3">
-            <label for="password" class="form-label">Password:</label>
-            <input type="password" class="form-control" id="password" placeholder="Enter password" name="password" required>
-        </div>
-        {% with messages = get_flashed_messages() %}
-            {% if messages %}
-                {% for message in messages %}
-                <div class="alert alert-danger text-center">
-                    {{ message }}
-                </div>
-                {% endfor %}
-            {% endif %}
-        {% endwith %}
-        <div class="text-center mt-4">
-            <button type="submit" class="btn btn-dark">Login</button>
-            <div class="mt-2">
-                <a href="/register">Create an account</a>
-            </div>
-        </div>
-    </form>
+    <div class="mb-3">
+      <label for="password" class="form-label">Password:</label>
+      <input
+        type="password"
+        class="form-control"
+        id="password"
+        placeholder="Enter password"
+        name="password"
+        required
+      />
+    </div>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-danger text-center">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+    <div class="text-center mt-4">
+      <button type="submit" class="btn btn-sm btn-dark">Login</button>
+      <div class="mt-2">
+        <a href="/register">Create an account</a>
+      </div>
+    </div>
+  </form>
 </section>
 {% endblock %}

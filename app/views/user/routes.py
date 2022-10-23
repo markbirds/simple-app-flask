@@ -35,18 +35,6 @@ def update():
     return {"message": "User successfully updated", "data": user}
 
 
-@module.route("/delete/<int:id>", methods=["DELETE"])
-def delete(id):
-    session.pop("user_id", None)
-
-    # delete user
-    user = User.query.get_or_404(id)
-    db.session.delete(user)
-    db.session.commit()
-
-    return {"message": "User successfully deleted"}
-
-
 @module.route("/users", methods=["GET"])
 def users():
     users = User.query.all()
@@ -57,3 +45,15 @@ def users():
 def get_user(id):
     user = get_user_by_id(id)
     return render_template("pages/profile.html", user=user, editable=False)
+
+
+@module.route("/users/<int:id>", methods=["DELETE"])
+def delete(id):
+    session.pop("user_id", None)
+
+    # delete user
+    user = User.query.get_or_404(id)
+    db.session.delete(user)
+    db.session.commit()
+
+    return {"message": "User successfully deleted"}

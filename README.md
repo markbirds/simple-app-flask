@@ -2,12 +2,18 @@
 
 ### Requirements
 
-Python installed (latest=3.10.7). Get python [here](https://www.python.org/downloads/).
+Python installed (recommended=3.10.7). Get python [here](https://www.python.org/downloads/).
+
+### What is Flask?
+
+Flask is a popular Python web framework used for developing web applications.
 
 ### Flask Documentation
+
 https://flask.palletsprojects.com/en/2.2.x/
 
 ### Download source code
+
 ```
 git clone https://github.com/markbirds/simple-app-flask.git
 ```
@@ -71,6 +77,8 @@ Note: Make sure to activate virtual environment first.
 
 Command:
 python run.py
+
+App is now running at http://localhost:5000/
 ```
 
 ### 10 Useful Flask Plugins For Your Python Project
